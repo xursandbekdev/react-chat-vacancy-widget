@@ -1,0 +1,416 @@
+.chat-scroll {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent
+}
+
+.chat-scroll::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.chat-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Button shimmer effect */
+.shimmer-button {
+    position: relative;
+    width: 200px;
+    height: 36px;
+    border-radius: 20px 20px 0 0;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.5s, background-color 0.3s;
+    overflow: hidden;
+}
+
+.shimmer-button:hover {
+    transform: scale(1.05);
+}
+
+.shimmer-button .shimmer {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transform: skewX(12deg);
+}
+
+.shimmer-button:hover .shimmer {
+    animation: shimmer 1s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%) skewX(12deg);
+    }
+    100% {
+        transform: translateX(100%) skewX(12deg);
+    }
+}
+
+.icon-container {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat-container {
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+}
+
+.header {
+    background: linear-gradient(to right, #2563eb, #4f46e5);
+    color: white;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-title {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.header-subtitle {
+    font-size: 11px;
+    opacity: 0.9;
+}
+
+.message-area {
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+}
+
+.message {
+    max-width: 75%;
+    padding: 8px;
+    border-radius: 8px;
+    word-wrap: break-word;
+}
+
+.message.user {
+    background: #e6f3ff;
+    margin-left: auto;
+    text-align: right;
+}
+
+.message.bot {
+    background: #f7f7f7;
+    margin-right: auto;
+}
+
+.message.system {
+    background: #f0f0f0;
+    text-align: center;
+    color: #666;
+    font-size: 12px;
+    margin: 0 auto;
+}
+
+.typing-indicator {
+    display: flex;
+    gap: 4px;
+    padding: 8px;
+    background: #f7f7f7;
+    border-radius: 8px;
+}
+
+.typing-dot {
+    width: 8px;
+    height: 8px;
+    background: #999;
+    border-radius: 50%;
+    animation: bounce 0.6s infinite;
+}
+
+.typing-dot:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.typing-dot:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.vacancy-card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.vacancy-title {
+    font-size: 12px;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.vacancy-price {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #16a34a;
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.vacancy-description {
+    font-size: 11px;
+    color: #666;
+    margin-top: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.vacancy-expanded {
+    border-top: 1px solid #e5e7eb;
+    padding-top: 8px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #666;
+}
+
+.apply-button {
+    padding: 4px 8px;
+    background: #2563eb;
+    color: white;
+    font-size: 11px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.apply-button:hover {
+    background: #1d4ed8;
+}
+
+.expand-button {
+    padding: 4px;
+    color: #999;
+    cursor: pointer;
+}
+
+.action-card {
+    max-width: 85%;
+    padding: 8px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.76);
+    font-size: 12px;
+}
+
+.action-button {
+    padding: 8px;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 115px;
+    height: 32px;
+    font-size: 12px;
+}
+
+.action-button.upload {
+    background: #16a34a;
+}
+
+.action-button.upload:disabled {
+    background: #d1d5db;
+    cursor: not-allowed;
+}
+
+.action-button.create {
+    background: #3b82f6;
+}
+
+.action-button.create:disabled {
+    background: #d1d5db;
+    cursor: not-allowed;
+}
+
+.download-card {
+    max-width: 75%;
+    padding: 8px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: #f7f7f7;
+    font-size: 12px;
+}
+
+.download-title {
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.download-filename {
+    font-size: 11px;
+    color: #666;
+}
+
+.download-button {
+    padding: 4px 8px;
+    background: #2563eb;
+    color: white;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.download-button:hover {
+    background: #1d4ed8;
+}
+
+.input-area {
+    border-top: 1px solid #e5e7eb;
+    padding: 12px;
+}
+
+.input-container {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.chat-input {
+    flex: 1;
+    border: 1px solid #d1d5db;
+    border-radius: 9999px;
+    padding: 8px 12px;
+    font-size: 13px;
+    background: rgba(255, 255, 255, 0.44);
+    outline: none;
+    caret-color: #2563eb;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.chat-input:focus {
+    border-color: #93c5fd;
+    box-shadow: 0 0 0 1px #bfdbfe;
+}
+
+.send-button {
+    padding: 8px 12px;
+    border-radius: 9999px;
+    font-size: 13px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.send-button.enabled {
+    background: #3b82f6;
+    color: white;
+}
+
+.send-button.enabled:hover {
+    background: #2563eb;
+}
+
+.send-button.disabled {
+    background: #d1d5db;
+    color: #6b7280;
+    cursor: not-allowed;
+}
+
+.close-button {
+    position: absolute;
+    top: -12px;
+    left: -20px;
+    border: 1px solid #e5e7eb;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #6b7280;
+}
+
+/* LoadingSpinner styles */
+.loading-spinner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+.loading-spinner {
+    animation: spin 1s linear infinite;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-bottom-color: #2563eb;
+}
+
+.loading-spinner.sm {
+    width: 16px;
+    height: 16px;
+}
+
+.loading-spinner.md {
+    width: 32px;
+    height: 32px;
+}
+
+.loading-spinner.lg {
+    width: 48px;
+    height: 48px;
+}
+
+.loading-message {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #666;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
