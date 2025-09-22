@@ -45,9 +45,9 @@ const WidgetComponent: React.FC<WidgetProps> = ({
     const chatInputRef = useRef<HTMLInputElement>(null);
 
     const chatApiUrl = `https://chatai.my-blog.uz/webhook/${token}`;
-    const uploadApiUrl = "https://vakansiya.my-blog.uz/upload/";
-    const vacancyApiUrl = "https://vakansiya.my-blog.uz/vakansiya/";
-    const downloadBaseUrl = "https://vakansiya.my-blog.uz/download/";
+    const uploadApiUrl = `${import.meta.url}/upload/`;
+    const vacancyApiUrl = `${import.meta.url}/vakansiya/`;
+    const downloadBaseUrl = `${import.meta.url}/download/`;
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -484,6 +484,7 @@ const WidgetComponent: React.FC<WidgetProps> = ({
                                     <p style={{ color: "#6b7280", fontSize: "12px" }}>Vakansiyalar topilmadi</p>
                                 </div>
                             ) : (
+
                                 !selectedVacancy &&
                                 messages.length <= 0 &&
                                 vacancies.map((vacancy) => (
